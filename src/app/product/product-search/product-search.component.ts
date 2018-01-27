@@ -13,13 +13,16 @@ export class ProductSearchComponent implements OnInit {
   searchTerm: string;
 
   get products(): Product[] {
-    return this.productService.getProducts(this.searchTerm);
+    return this.productService.products;
   }
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.productService.getProducts("Angular");
       this.searchTerm = params['searchTerm'];
     });
   }

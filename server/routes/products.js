@@ -12,7 +12,14 @@ router.patch('/:productId', editProduct);
 let collection = db.getCollection('products');
 
 function getAllProducts(request, response) {
-    response.json(collection.find());
+    if (request.query.searchTerm) {
+        let searchedProducts = collection.where(function (obj) {
+            return obj.name.includes(request.query.searchTerm);
+        });
+        response.json(searchedProducts);
+    } else {
+        response.json(collection.find());
+    }
 }
 
 function getProduct(request, response) {
