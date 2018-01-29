@@ -3,7 +3,12 @@
 
 
 <div class="row">
-    <div *ngFor="let p of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-        <product-card [product]="p"></product-card>
+    <div *ngFor="let p of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-3" >
+        <product-card [product]="p" (click)="selectProduct(p)" [class.card-inverse]="p.id == selectedProduct?.id" [class.card-info]="p.id == selectedProduct?.id"></product-card>
+    </div>
+</div>
+<div class="row">
+    <div *ngIf="selectedProduct != null">
+        <app-product-detail></app-product-detail>
     </div>
 </div>
