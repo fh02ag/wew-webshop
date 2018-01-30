@@ -2,7 +2,7 @@
   <img class="card-img-top w-20" src="{{product.image}}" alt="Product">
   <div class="card-block m-2">
     <h4 class="card-title">{{product.name}}</h4>
-    <p class="card-text">{{product.price}} €</p>
+    <p class="card-text">{{product.price | currency: '€ ': true}}</p>
     <a href="#" class="btn btn-primary btn-block">Zum Warenkorb hinzufügen</a>
   </div>
 </div>
