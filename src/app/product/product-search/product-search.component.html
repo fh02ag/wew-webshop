@@ -1,7 +1,9 @@
-{{products | json}}
-
-
-
+<div *ngIf="products?.length > 0" class="alert alert-secondary" role="alert">
+        Für Ihre Suche nach <b>"{{searchTerm}}"</b> wurden <b>{{products?.length}} Produkte</b> gefunden.
+</div>
+<div *ngIf="products?.length <= 0" class="alert alert-secondary" role="alert">
+        Für Ihre Suche nach <b>"{{searchTerm}}"</b> wurden keine Produkte gefunden.
+</div>
 <div class="row">
     <div *ngFor="let p of products" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <product-card [product]="p"></product-card>
