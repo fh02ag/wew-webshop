@@ -1,3 +1,23 @@
-<p>
-  cart works!
-</p>
+{{cart$}}
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Bild</th>
+        <th scope="col">Name</th>
+        <th scope="col">Preis</th>
+        <th scope="col">Anzahl</th>
+        <th scope="col">Aktionen</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cartEntry of cart$?.cartEntries | async">
+        <td><img class="w-20" src="{{cartEntry.product.image}}" alt="Product"></td>
+        <td>{{cartEntry.product.name}}</td>
+        <td>{{cartEntry.product.price}}</td>
+        <td>{{cartEntry.quantity}}</td>
+        <td>{{cartEntry.quantity}}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
