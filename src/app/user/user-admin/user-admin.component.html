@@ -1,0 +1,23 @@
+<h1>Admin</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col">Passwort</th>
+      <th scope="col">Benutzername</th>
+      <th scope="col">Aktionen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.email}}</td>
+      <td>*****</td>
+      <td>{{user.username}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="editUser(user.id)">Ändern</button>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="removeUser(user)">Löschen</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

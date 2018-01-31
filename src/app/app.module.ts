@@ -15,13 +15,15 @@ import { APP_ROUTES } from './app.routing';
 import { BASE_URL } from './app.token';
 import { cartReducer } from './reducer/cart.reducer';
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
+import { UserAuthComponent } from './user/user-auth/user-auth.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    UserAuthComponent
 ],
   imports: [
     BrowserModule,

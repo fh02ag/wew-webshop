@@ -8,6 +8,8 @@ const users = db.addCollection('users');
 const products = db.addCollection('products');
 
 users.insert(new User("admin", "admin@admin.at", "admin"));
+users.insert(new User("test1", "test1@test1.at", "test1"));
+users.insert(new User("test2", "test2@test2.at", "test2"));
 
 products.insert(new Product("AngularJS 1 Buch", "Das neue AngularJS 1 Buch.", 10.99, "https://static.pexels.com/photos/256396/pexels-photo-256396.jpeg"));
 products.insert(new Product("AngularJS 2 Buch", "Das neue AngularJS 2 Buch.", 20.99, "https://static.pexels.com/photos/256396/pexels-photo-256396.jpeg"));

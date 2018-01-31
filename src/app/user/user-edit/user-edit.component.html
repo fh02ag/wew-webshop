@@ -1,3 +1,23 @@
-<p>
-  user-edit works!
-</p>
+<h1>Benutzer ändern</h1>
+
+<div *ngIf="editSuccess" class="alert alert-success" role="alert">
+  Sie haben den Benutzer erfolgreich geändert.
+</div>
+
+<form [formGroup]="filter">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input [(ngModel)]="user.email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
+    <small id="emailHelp" class="form-text text-muted">Diese Email Adresse wird zum Einloggen verwendet.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Passwort</label>
+    <input [(ngModel)]="user.password" type="password" class="form-control" id="password" placeholder="Passwort" formControlName="password">
+  </div>
+  <div class="form-group">
+    <label for="username">Benutzername</label>
+    <input [(ngModel)]="user.username" type="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Benutzername" formControlName="username">
+    <small id="usernameHelp" class="form-text text-muted">Der Benutzername wird für Sie im Shop angezeigt.</small>
+  </div>
+  <button (click)="editUser()" type="submit" class="btn btn-primary" [disabled]="!filter.controls.email.value || filter.invalid || filter.controls.email.invalid || !filter.controls.password.value">Benutzer ändern</button>
+</form>

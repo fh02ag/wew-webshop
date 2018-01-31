@@ -1,16 +1,8 @@
 <div class="row justify-content-md-center">
-  <div class="col col-lg-4">
-    <h1>Login</h1>
-    <form method="post">
-      <div class="form-group">
-        <input type="text" name="email" placeholder="Email" class="form-control border" required="required" />
-      </div>
-      <div class="form-group">
-        <input type="password" name="p" placeholder="Passwort" class="form-control border" required="required" />
-      </div>
-      <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
-    </form>
-    <h1>Registrieren</h1>
-    <user-registration></user-registration>
+  <div class="col col-lg-4 pull-left">
+    <user-auth class="pull-left"></user-auth>
+  </div>
+  <div class="col col-lg-4 pull-right">
+    <user-registration class="pull-right"></user-registration>
   </div>
 </div>
