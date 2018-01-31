@@ -29,4 +29,7 @@ export class CartComponent implements OnInit {
   decreaseQuantity(cartEntry) {
     this.store.dispatch({ type: CART_DECREASE_QUANTITY, payload: cartEntry });
   }
+
+  ngOnInit() {
+  }
 }
