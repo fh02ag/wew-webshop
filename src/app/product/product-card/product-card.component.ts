@@ -21,14 +21,10 @@ export class ProductCardComponent implements OnInit {
 
   constructor(private store: Store<AppState>) {
     this.cart$ = this.store.select("cart");
-    this.cart$.subscribe(cart => {
-      console.log(cart);
-    });
   }
 
   addToCart(product) {
     this.store.dispatch({ type: CART_ADD, payload: product });
-    //console.log(product);
   }
 
   ngOnInit() {}

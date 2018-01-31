@@ -18,7 +18,7 @@ export class CartComponent implements OnInit {
     this.cart$ = this.store.select('cart');
   }
 
-  removeFromCart(cartEntry){
+  removeFromCart(cartEntry) {
     this.store.dispatch({ type: CART_REMOVE, payload: cartEntry });
   }
 
@@ -28,8 +28,5 @@ export class CartComponent implements OnInit {
 
   decreaseQuantity(cartEntry) {
     this.store.dispatch({ type: CART_DECREASE_QUANTITY, payload: cartEntry });
-  }
-
-  ngOnInit() {
   }
 }

@@ -1,13 +1,13 @@
 <nav class="navbar navbar-dark bg-dark justify-content-between">
   <div class="container">
-    <a class="navbar-brand" href="#">WEW-SHOP</a>
+    <a class="navbar-brand" routerLink="/home">WEW-SHOP</a>
     <form class="form-inline my-2 my-lg-0">
       <input [(ngModel)]="searchTerm" name="searchTerm" class="form-control mr-sm-2" type="text" placeholder="Nach Produkten suchen">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="doProductSearch()">Suche</button>
     </form>
     
-    <a href="/cart" class="btn btn-primary">
-        Warenkorb <span class="badge badge-light">{{(cart$ | async)?.cartEntries?.length | async}}</span>
+    <a routerLink="/cart" class="btn btn-primary">
+        Warenkorb <span class="badge badge-light">{{(cart$ | async)?.cartEntries?.length}}</span>
     </a>
   </div>
 </nav>

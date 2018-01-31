@@ -61,6 +61,10 @@ function increaseQuantity(cart, cartEntry) {
 
 function decreaseQuantity(cart, cartEntry) {
   cartEntry.quantity--;
+  if (cartEntry.quantity == 0) {
+    removeFromCart(cart, cartEntry);
+    return;
+  }
   calculateTotalPrice(cart);
 }
 

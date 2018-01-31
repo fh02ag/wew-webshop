@@ -1,23 +1,37 @@
-{{cart$}}
+<h1>Warenkorb</h1>
 
 <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Bild</th>
-        <th scope="col">Name</th>
-        <th scope="col">Preis</th>
-        <th scope="col">Anzahl</th>
-        <th scope="col">Aktionen</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cartEntry of cart$?.cartEntries | async">
-        <td><img class="w-20" src="{{cartEntry.product.image}}" alt="Product"></td>
-        <td>{{cartEntry.product.name}}</td>
-        <td>{{cartEntry.product.price}}</td>
-        <td>{{cartEntry.quantity}}</td>
-        <td>{{cartEntry.quantity}}</td>
-      </tr>
-      <tr>
-    </tbody>
-  </table>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Bild</th>
+      <th scope="col">Name</th>
+      <th scope="col">Preis</th>
+      <th scope="col">Anzahl</th>
+      <th scope="col">Gesamtpreis</th>
+      <th scope="col">Aktionen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cartEntry of (cart$ | async)?.cartEntries">
+      <td>
+        <img class="img-thumbnail" src="{{cartEntry.product.image}}" alt="Product">
+      </td>
+      <td>{{cartEntry.product.name}}</td>
+      <td>{{cartEntry.product.price | currency: '€ ': true}}</td>
+      <td>{{cartEntry.quantity | currency: '€ ': true}}</td>
+      <td>{{(cartEntry.quantity * cartEntry.product.price) | currency: '€ ': true}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="increaseQuantity(cartEntry)">+</button>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="decreaseQuantity(cartEntry)">-</button>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b>Gesamtsumme</b></td>
+      <td><b>{{(cart$ | async)?.totalPrice | currency: '€ ': true}}</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>

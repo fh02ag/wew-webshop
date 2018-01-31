@@ -28,7 +28,7 @@ import { cartReducer } from './reducer/cart.reducer';
     UserModule,
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot({ cartReducer }),
+    StoreModule.forRoot({ cart: cartReducer }),
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [{ provide: BASE_URL, useValue: 'http://localhost:3000/api/' }],
