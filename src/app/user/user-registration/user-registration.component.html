@@ -1,0 +1,21 @@
+<div *ngIf="registrationSuccess" class="alert alert-success" role="alert">
+    Sie haben sich erfolgreich registriert!
+  </div>
+
+<form [formGroup]="filter">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
+    <small id="emailHelp" class="form-text text-muted">Diese Email Adresse wird zum Einloggen verwendet.</small>
+  </div>
+  <div class="form-group">
+    <label for="password">Passwort</label>
+    <input type="password" class="form-control" id="password" placeholder="Passwort" formControlName="password">
+  </div>
+  <div class="form-group">
+    <label for="username">Benutzername</label>
+    <input type="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Benutzername" formControlName="username">
+    <small id="usernameHelp" class="form-text text-muted">Der Benutzername wird für Sie im Shop angezeigt.</small>
+  </div>
+  <button (click)="registerUser()" type="submit" class="btn btn-primary" [disabled]="!filter.controls.email.value || filter.invalid || filter.controls.email.invalid || !filter.controls.password.value">Jetzt kostenlos registrieren</button>
+</form>

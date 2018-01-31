@@ -14,12 +14,14 @@ import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app.routing';
 import { BASE_URL } from './app.token';
 import { cartReducer } from './reducer/cart.reducer';
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    UserRegistrationComponent
 ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { cartReducer } from './reducer/cart.reducer';
     UserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     StoreModule.forRoot({ cart: cartReducer }),
     RouterModule.forRoot(APP_ROUTES)
   ],
