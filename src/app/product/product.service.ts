@@ -17,6 +17,14 @@ export class ProductService {
         //private oauthService: OAuthService
     ) { }
 
+    getAllProducts() {
+        const url = this.url + 'products';
+        let headers = new HttpHeaders()
+            .set('Accept', 'application/json');
+
+        return this.http.get<Product[]>(url, { headers });
+    }
+
     getProducts(searchTerm: string) {
         const url = this.url + 'products';
         let params = new HttpParams()
@@ -34,5 +42,38 @@ export class ProductService {
                 console.error('Error loading flights', err);
             }
             );
+    }
+
+    removeProduct(product: Product) {
+        const url = this.url + "products/" + product.id;
+        let headers = new HttpHeaders()
+            .set("Accept", "application/json")
+            .set("Content-Type", "application/json");
+
+        return this.http.delete(url, { headers });
+    }
+
+    getProduct(productId) {
+        const url = this.url + "products/" + productId;
+        let headers = new HttpHeaders()
+            .set("Accept", "application/json")
+            .set("Content-Type", "application/json");
+
+        return this.http.get<Product>(url, { headers });
+    }
+
+    editProduct(product: Product) {
+        const url = this.url + "products/" + product.id;
+        const body = {
+            name: product.name,
+            price: product.price,
+            description: product.description
+        };
+
+        let headers = new HttpHeaders()
+            .set("Accept", "application/json")
+            .set("Content-Type", "application/json");
+
+        return this.http.patch<Product>(url, body, { headers });
     }
 }

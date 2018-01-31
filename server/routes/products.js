@@ -12,7 +12,7 @@ router.patch('/:productId', editProduct);
 let collection = db.getCollection('products');
 
 function getAllProducts(request, response) {
-    if (request.query.searchTerm !== "undefined") {
+    if (request.query.searchTerm  && request.query.searchTerm != "undefined") {
         let searchedProducts = collection.where(function (obj) {
             return obj.name.includes(request.query.searchTerm);
         });

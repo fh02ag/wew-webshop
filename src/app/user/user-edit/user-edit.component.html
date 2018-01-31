@@ -9,15 +9,18 @@
     <label for="email">Email</label>
     <input [(ngModel)]="user.email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" formControlName="email">
     <small id="emailHelp" class="form-text text-muted">Diese Email Adresse wird zum Einloggen verwendet.</small>
+    <div *ngIf="filter.controls.email.hasError('required')" class="alert alert-danger">Bitte geben Sie eine Email an.</div>
   </div>
   <div class="form-group">
     <label for="password">Passwort</label>
     <input [(ngModel)]="user.password" type="password" class="form-control" id="password" placeholder="Passwort" formControlName="password">
+    <div *ngIf="filter.controls.password.hasError('required')" class="alert alert-danger">Bitte geben Sie ein Passwort an.</div>
   </div>
   <div class="form-group">
     <label for="username">Benutzername</label>
     <input [(ngModel)]="user.username" type="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Benutzername" formControlName="username">
     <small id="usernameHelp" class="form-text text-muted">Der Benutzername wird für Sie im Shop angezeigt.</small>
+    <div *ngIf="filter.controls.username.hasError('required')" class="alert alert-danger">Bitte geben Sie einen Benutzernamen an.</div>
   </div>
   <button (click)="editUser()" type="submit" class="btn btn-primary" [disabled]="!filter.controls.email.value || filter.invalid || filter.controls.email.invalid || !filter.controls.password.value">Benutzer ändern</button>
 </form>

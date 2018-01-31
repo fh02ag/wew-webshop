@@ -1,5 +1,4 @@
-<h1>Admin</h1>
-
+<h1>Benutzer</h1>
 <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -17,6 +16,33 @@
       <td>
         <button class="btn btn-primary btn-sm" type="submit" (click)="editUser(user.id)">Ändern</button>
         <button class="btn btn-primary btn-sm" type="submit" (click)="removeUser(user)">Löschen</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h1>Produkte</h1>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Bild</th>
+      <th scope="col">Name</th>
+      <th scope="col">Preis</th>
+      <th scope="col">Beschreibung</th>
+      <th scope="col">Aktionen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>
+        <img class="img-thumbnail" src="{{product.image}}" alt="Product">
+      </td>
+      <td>{{product.name}}</td>
+      <td>{{product.price | currency: '€ ': true}}</td>
+      <td>{{product.description}}</td>
+      <td>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="editProduct(product.id)">Ändern</button>
+        <button class="btn btn-primary btn-sm" type="submit" (click)="removeProduct(product)">Löschen</button>
       </td>
     </tr>
   </tbody>
