@@ -9,8 +9,3 @@
         <product-card [product]="p" (click)="selectProduct(p)" [class.card-inverse]="p.id == selectedProduct?.id" [class.card-info]="p.id == selectedProduct?.id"></product-card>
     </div>
 </div>
-<div class="row">
-    <div *ngIf="selectedProduct != null">
-        <app-product-detail></app-product-detail>
-    </div>
-</div>

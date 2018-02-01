@@ -18,7 +18,7 @@
       </td>
       <td>{{cartEntry.product.name}}</td>
       <td>{{cartEntry.product.price | currency: '€ ': true}}</td>
-      <td>{{cartEntry.quantity | currency: '€ ': true}}</td>
+      <td>{{cartEntry.quantity}}</td>
       <td>{{(cartEntry.quantity * cartEntry.product.price) | currency: '€ ': true}}</td>
       <td>
         <button class="btn btn-primary btn-sm" type="submit" (click)="increaseQuantity(cartEntry)">+</button>
